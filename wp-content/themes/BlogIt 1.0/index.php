@@ -3,9 +3,8 @@
 <div class="barber_section layout_padding">
    <div class="container">
       <?php
-      if (have_posts()) {
-         while (have_posts()) {
-            the_post();
+      if ( have_posts() ) :
+         while ( have_posts() ): the_post();
       ?>
             <div class="braber_taital_main">
                <div class="row">
@@ -32,17 +31,16 @@
                   </div>
                   <div class="col-lg-6">
                      <div class="fashion_img">
-                        <img class="fashion_img" src="<?php if (has_post_thumbnail()) {
-                                                         the_post_thumbnail();
-                                                      }; ?>">
-                        <div class="read_bt"><a href="#"><?php  echo get_the_date(); ?></a></div>
+                        <img class="fashion_img" src=" <?php the_post_thumbnail_url();
+                                                       ?>">
+                        <div class="read_bt"><a href="#"><?php the_modified_date(); ?></a></div>
                      </div>
                   </div>
                </div>
             </div>
       <?php
-         }
-      }
+        endwhile;
+      endif;
       ?>
    </div>
 </div>
